@@ -10,9 +10,29 @@
   </head>
 
   <div class="container">
-    <header>
-    </header>
     
+<!-- ヘッダー -->
+    <header class="sticky-top">
+      <nav class="">
+        <% if user_signed_in? %>
+          <div class="nav-item">
+            <a class="nav-link" href="/about"> ABOUT</a>
+          </div>
+          <div class="nav-item">
+            <a class="nav-link" data-method="delete" href="/users/sign_out"> ログアウト</a>
+          </div>
+        <% else %>
+          <div class="nav-item">
+            <a class="nav-link" href="/about"> ABOUT</a>
+          </div>
+          <div class="nav-item">
+            <a class="nav-link" href="/users/sign_in"> ログイン</a>
+          </div>
+        <% end %>
+      </nav>
+    </header>
+
+<!-- 本文 -->
     <body>
       <%= yield %>
     </body>
