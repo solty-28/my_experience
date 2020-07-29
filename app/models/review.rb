@@ -4,4 +4,6 @@ class Review < ApplicationRecord
   has_many :users, through: :favorites
 
   attachment :picture
+
+  acts_as_taggable
 end

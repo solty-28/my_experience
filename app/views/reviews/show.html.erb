@@ -21,6 +21,14 @@
   <%= @review.review_body %>
   </div>
 
+  <div class="">
+  	<p>タグ</p>
+  	<% @review.tag_list.each do |tag| %>
+  	  <span class="badge.badge-primary.mr-1.p-2"><%= tag %></span>
+  	<% end %>
+  	
+  </div>
+
   
 </div>
 

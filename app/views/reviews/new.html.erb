@@ -18,22 +18,23 @@
   	<%= f.hidden_field :rating, id: :review_star %>
   </div>
 
-  <div class="">
+  <div class="form-group">
   	<%= f.label :title, "タイトル" %>
-  </div>
-  <div class="">
-  	<%= f.text_field :title, class:"" %>
+  	<%= f.text_field :title, class:"form-control" %>
   </div>
 
-  <div class="">
+  <div class="form-group">
   	<%= f.label :review_body, "本文" %>
+  	<%= f.text_field :review_body, class:"form-control" %>
   </div>
-  <div class="">
-  	<%= f.text_field :review_body, class:"" %>
+
+  <div class="form-group">
+  	<%= f.label :tag_list, "タグ付け" %>
+  	<%= f.text_field :tag_list, value: @review.tag_list.join(','), class: "form-control" %>
   </div>
 
   <div class="">
-  	<%= f.submit "投稿", class:"btn btn-secondary" %>
+  	<%= f.submit "投稿", class:"btn btn-primary" %>
   </div>
   <% end %>
 
