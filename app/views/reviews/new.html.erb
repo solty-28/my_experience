@@ -11,6 +11,14 @@
   </div>
 
   <div class="">
+  	<label>星評価</label>
+  </div>
+  <div class="field" id="star">
+  	<%= f.label :rating %>
+  	<%= f.hidden_field :rating, id: :review_star %>
+  </div>
+
+  <div class="">
   	<%= f.label :title, "タイトル" %>
   </div>
   <div class="">
@@ -30,3 +38,12 @@
   <% end %>
 
 </div>
+
+<script>
+$('#star').raty({
+  size     : 36,
+  starOff:  '<%= asset_path('star-off.png') %>',
+  starOn : '<%= asset_path('star-on.png') %>',
+  scoreName: 'review[rating]'
+});
+</script>
