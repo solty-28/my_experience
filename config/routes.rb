@@ -10,8 +10,10 @@ Rails.application.routes.draw do
 
   resources :user, only: [:index, :show]
 
-  resources :reviews
-  resources :comments, only: [:create, :destroy]
+  resources :reviews do
+    resources :comments, only: [:create, :destroy]
+  end
+
   resources :favorites, only: [:create, :destroy]
 
   devise_for :users, controllers: {

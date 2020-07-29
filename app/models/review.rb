@@ -5,5 +5,7 @@ class Review < ApplicationRecord
 
   attachment :picture
 
+  belongs_to :genre
+
   acts_as_taggable
 end
