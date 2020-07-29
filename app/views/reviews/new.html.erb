@@ -1,2 +1,32 @@
-<h1>Reviews#new</h1>
-<p>Find me in app/views/reviews/new.html.erb</p>
+<h1>新規投稿</h1>
+
+
+<div class="">
+  <%= form_for(@review, url: reviews_path, method: :post) do |f| %>
+  <div class="">
+  	<%= f.label :picture, "レビュー写真" %>
+  </div>
+  <div class="">
+  <%= f.attachment_field :picture, class:"" %>
+  </div>
+
+  <div class="">
+  	<%= f.label :title, "タイトル" %>
+  </div>
+  <div class="">
+  	<%= f.text_field :title, class:"" %>
+  </div>
+
+  <div class="">
+  	<%= f.label :review_body, "本文" %>
+  </div>
+  <div class="">
+  	<%= f.text_field :review_body, class:"" %>
+  </div>
+
+  <div class="">
+  	<%= f.submit "投稿", class:"btn btn-secondary" %>
+  </div>
+  <% end %>
+
+</div>
