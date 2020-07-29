@@ -1,0 +1,25 @@
+<p>ジャンル</p>
+
+<!-- ジャンル登録フォーム -->
+<div class="row">
+  <%= form_for(@genre, url: genres_path) do |f| %>
+    <div class="">
+      <%= f.label :genre_name,"ジャンル名", class:"" %>
+    </div>
+    <div>
+      <%= f.text_field :genre_name, class:"" %>
+    </div>
+    <div class="">
+      <%= f.submit "登録する", class:"btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
+
+<!-- ジャンル一覧表示-->
+<div class="">
+  <% @genres.each do |genre| %>
+  <div class="">
+  	<%= genre.genre_name %>
+  </div>
+  <% end %>
+</div>

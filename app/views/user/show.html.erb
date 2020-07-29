@@ -3,3 +3,11 @@
 <%= current_user.id %>
 
 <%= current_user.name %>
+
+
+<div class="row col-xs-4">
+  <%= link_to "ジャンル管理", genres_path, class: "" %>
+  <%= link_to "投稿一覧", reviews_path, class: "" %>
+  <%= link_to "新規投稿", new_review_path, class: "" %>
+
+</div>
