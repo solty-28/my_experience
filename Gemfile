@@ -70,3 +70,8 @@ gem 'jquery-rails'
 gem 'pry-rails'
 gem 'font-awesome-sass'
 gem 'acts-as-taggable-on'
+
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
