@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2020_07_27_155837) do
     t.integer "genre_id"
     t.string "title"
     t.text "review_body"
-    t.string "picture"
+    t.string "picture_id"
     t.string "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

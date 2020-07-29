@@ -5,7 +5,7 @@ class CreateReviews < ActiveRecord::Migration[5.2]
       t.references :genre, foreign_key: true
       t.string :title
       t.text :review_body
-      t.string :picture
+      t.string :picture_id
       t.string :rating
 
       t.timestamps

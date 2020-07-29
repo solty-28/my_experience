@@ -1,2 +1,26 @@
-<h1>Reviews#show</h1>
-<p>Find me in app/views/reviews/show.html.erb</p>
+<h1>レビュー詳細</h1>
+
+
+<div class="row">
+  <div class="">
+  <p>星評価</p>
+  
+  </div>
+
+
+  <div class="">
+  <p>タイトル</p>
+  <%= @review.title %>
+  </div>
+
+  <div class="">
+  <%= attachment_image_tag @review, :picture, :fill, 300, 300, size:'300×300' %>
+  </div>
+
+  <div class="">
+  <p>本文</p>
+  <%= @review.review_body %>
+  </div>
+
+  
+</div>
