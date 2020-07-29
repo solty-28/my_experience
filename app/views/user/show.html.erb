@@ -1,13 +1,57 @@
-<p>ようこそ</p>
+<div class="row">
+  <div class="col-xm-3">
+    <ul class="">
+    	<div><span>メニュー</span></div>
+      <div class="">
+        <%= link_to "ジャンル管理", genres_path, class: "" %>
+      </div>
+      <div class="">
+        <%= link_to "投稿一覧", reviews_path, class: "" %>
+      </div>
+      <div class="">
+        <%= link_to "新規投稿", new_review_path, class: "" %>
+      </div>
+    </ul>
+  </div>
 
-<%= current_user.id %>
+  <div class="col-xm-9 ml-3">
+  	
+  	<h2>レビュー一覧</h2>
+  	<table class="table table striped">
+  	  <tr>
+  	  	<th>評価点</th>
+  	  	<th>タイトル</th>
+  	  	<th>ジャンル</th>
+  	  	<th>タグ</th>
+  	  </tr>
 
-<%= current_user.name %>
+  	
+  	<% @reviews.each do |review| %>
+  	  <tr>
+  	  	<td>
+  	      <div id="star-rate-<%= review.id %>"></div>
+  	      <script>
+          $('#star-rate-<%= review.id %>').raty({
+            size     : 36,
+            starOff:  '<%= asset_path('star-off.png') %>',
+            starOn : '<%= asset_path('star-on.png') %>',
+            readOnly: true,
+            score: <%= review.rating %>,
+          });
+          </script>
+        </td>
 
+        <td><%= link_to review.title, review_path(review) %></td>
 
-<div class="row col-xs-4">
-  <%= link_to "ジャンル管理", genres_path, class: "" %>
-  <%= link_to "投稿一覧", reviews_path, class: "" %>
-  <%= link_to "新規投稿", new_review_path, class: "" %>
+        <td></td>
+
+        <td>
+          <% review.tag_list.each do |tag| %>
+  	        <span class="badge.badge-primary.mr-1.p-2"><%= tag %></span>
+  	      <% end %>
+  	    </td>
+  	  </tr>
+  	<% end %>
+  </div>
 
 </div>

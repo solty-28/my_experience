@@ -29,6 +29,11 @@
   </div>
 
   <div class="form-group">
+  	<%= f.label :genre, "ジャンル選択" %>
+  	<%= f.collection_select(:genre_id, @genres, :id, :genre_name, { include_blank: '分類なし'}, class:"form-control") %>
+  </div>
+
+  <div class="form-group">
   	<%= f.label :tag_list, "タグ付け" %>
   	<%= f.text_field :tag_list, value: @review.tag_list.join(','), class: "form-control" %>
   </div>

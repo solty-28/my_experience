@@ -13,9 +13,9 @@ class GenresController < ApplicationController
   	@genre.user_id = current_user.id
   	if @genre.save
   	  flash[:notice] = "ジャンルを追加しました"
-  	  render :index
+  	  redirect_to genres_path
   	else
-  	  render :index
+  	  redirect_to genres_path
   	end
   end
 
