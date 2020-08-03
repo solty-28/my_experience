@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get '/about' => 'top#about', as: 'about'
 
   scope :user do
-  	resources :genres, only: [:index, :update, :create]
+  	resources :genres, only: [:index, :create]
   end
 
   resources :user, only: [:index, :show]

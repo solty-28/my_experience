@@ -33,9 +33,58 @@
   	<% end %>
   	
   </div>
+  
+  <% if @review.user_id == current_user.id %>
+    <div class="">
+      <%= link_to "編集する", edit_review_path(@review), class:"btn btn-primary" %>
+    </div>
 
+    <div class="">
+      <%= link_to "削除する", review_path(@review), method: :delete, class:"btn btn-danger" %>
+    </div>
+  <% end %>
   
 </div>
+
+
+
+<!-- コメント投稿&一覧 -->
+<div class="row">
+  <h3>コメント投稿</h3>
+
+  <div class="">
+    <%= form_for(@comment, url: review_comments_path(@review), method: :post) do |f| %>
+      <div class="form-group">
+        <%= f.label :comment_body, "コメント" %>
+        <%= f.text_area :comment_body, class:"form-control" %>
+      </div>
+      <div class="">
+        <%= f.submit "投稿", class:"btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+
+  <table class="">
+    <% if @comments.present? %>
+      <% @comments.each do |comment| %>
+        <tr class="">
+          <th><%= comment.comment_body %></th>
+          <th>
+            <% if comment.user_id == current_user.id %>
+              <%= link_to "削除する", review_comment_path(@review), method: :delete, class:"btn btn-danger" %>
+            <% end %>
+          </th>
+        </tr>
+      <% end %>
+    <% else %>
+      <div class="">
+        <p>コメントはありません。</p>
+      </div>
+    <% end %>
+  </table>
+</div>
+
+
 
 <script>
 $('#star-rate-<%= @review.id %>').raty({

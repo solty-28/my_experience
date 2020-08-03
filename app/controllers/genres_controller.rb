@@ -1,12 +1,12 @@
 class GenresController < ApplicationController
 
-#ジャンル一覧
+##ジャンル一覧
   def index
   	@genres = Genre.where(user_id: current_user.id)
   	@genre = Genre.new
   end
 
-#ジャンル作成
+##ジャンル作成
   def create
   	@genres = Genre.where(user_id: current_user.id)
   	@genre = Genre.new(genre_params)

@@ -1,2 +1,56 @@
-<h1>Reviews#edit</h1>
-<p>Find me in app/views/reviews/edit.html.erb</p>
+<h1>編集画面</h1>
+
+
+<div class="">
+  <%= form_for(@review, url: review_path, method: :patch) do |f| %>
+  <div class="">
+  	<%= f.label :picture, "レビュー写真" %>
+  </div>
+  <div class="">
+  <%= f.attachment_field :picture, class:"" %>
+  </div>
+
+  <div class="">
+  	<label>星評価</label>
+  </div>
+  <div class="field" id="star">
+  	<%= f.label :rating %>
+  	<%= f.hidden_field :rating, id: :review_star %>
+  </div>
+
+  <div class="form-group">
+  	<%= f.label :title, "タイトル" %>
+  	<%= f.text_field :title, class:"form-control" %>
+  </div>
+
+  <div class="form-group">
+  	<%= f.label :review_body, "本文" %>
+  	<%= f.text_area :review_body, class:"form-control" %>
+  </div>
+
+  <div class="form-group">
+  	<%= f.label :genre, "ジャンル選択" %>
+  	<%= f.collection_select(:genre_id, @genres, :id, :genre_name, { include_blank: '分類なし'}, class:"form-control") %>
+  </div>
+
+  <div class="form-group">
+  	<%= f.label :tag_list, "タグ付け" %>
+  	<%= f.text_field :tag_list, value: @review.tag_list.join(','), class: "form-control" %>
+  </div>
+
+  <div class="">
+  	<%= f.submit "更新", class:"btn btn-primary" %>
+  </div>
+  <% end %>
+
+</div>
+
+<script>
+$('#star').raty({
+  size     : 36,
+  starOff:  '<%= asset_path('star-off.png') %>',
+  starOn : '<%= asset_path('star-on.png') %>',
+  score: <%= @review.rating %>,
+  scoreName: 'review[rating]'
+});
+</script>

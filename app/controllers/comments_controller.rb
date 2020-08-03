@@ -1,15 +1,20 @@
 class CommentsController < ApplicationController
   def create
+    @review = Review.find(params[:review_id])
   	@comment = Comment.new(comment_params)
   	@comment.user_id = current_user.id
   	@comment.review_id = params[:review_id]
   	if @comment.save
-  	  redirect_to review_path
+  	  redirect_to review_path(@review)
   	end
   end
 
   def destroy
-  	
+  	@review = Review.find(params[:review_id])
+    @comment = Comment.find_by(user_id: current_user.id, review_id: params[:review_id])
+    if @comment.destroy
+      redirect_to review_path(@review)
+    end
   end
 
   private
