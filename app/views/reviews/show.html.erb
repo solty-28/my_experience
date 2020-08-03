@@ -1,7 +1,17 @@
-<h1>レビュー詳細</h1>
-
-
 <div class="row">
+  <h1>レビュー詳細</h1>
+  <div class="">
+    <% if @review.favorited_by?(current_user) %>
+      <%= link_to review_favorites_path(@review), method: :delete do %>
+        <i class="fas fa-heart" aria-hidden="true" style="color: red:"></i>
+      <% end %>
+    <% else %>
+      <%= link_to review_favorites_path(@review), method: :post do %>
+        <i class="far fa-heart" aria-hidden="true"></i>
+      <% end %>
+    <% end %>
+  </div>
+
   <div class="">
   <p>星評価</p>
   <div id="star-rate-<%= @review.id %>"></div>

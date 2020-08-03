@@ -12,9 +12,9 @@ Rails.application.routes.draw do
 
   resources :reviews do
     resources :comments, only: [:create, :destroy]
+    resource :favorites, only: [:create, :destroy]
   end
 
-  resources :favorites, only: [:create, :destroy]
 
   devise_for :users, controllers: {
   	sessions: 'users/sessions',
