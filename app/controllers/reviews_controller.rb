@@ -33,7 +33,7 @@ class ReviewsController < ApplicationController
       @review.genre_id = (params[:exist_genre][:genre_id])
       @review.save
       redirect_to review_path(@review)
-    else
+    elsif params[:genre_choice] == '2'
       @genre = Genre.new
       @genre.genre_name = params[:new_genre_name]
       @genre.user_id = current_user.id
@@ -41,6 +41,8 @@ class ReviewsController < ApplicationController
       @review.genre_id = @genre.id
       @review.save
       redirect_to review_path(@review)
+    else
+      render action: :new
     end
   end
 
