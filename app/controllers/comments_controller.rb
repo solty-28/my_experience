@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+
+  ## レビューへのコメント投稿アクション
   def create
     @review = Review.find(params[:review_id])
   	@comment = Comment.new(comment_params)
@@ -9,6 +11,7 @@ class CommentsController < ApplicationController
   	end
   end
 
+  ## コメント削除アクション
   def destroy
   	@review = Review.find(params[:review_id])
     @comment = Comment.find_by(user_id: current_user.id, review_id: params[:review_id])
