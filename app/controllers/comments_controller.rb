@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-　before_action :authenticate_user!
+　
 
   ## レビューへのコメント投稿アクション
   def create
