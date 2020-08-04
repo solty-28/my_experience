@@ -29,27 +29,27 @@
   	  </tr>
 
   	
-  	<% @reviews.each do |review| %>
+  	<% @favorites.each do |favorite| %>
   	  <tr>
   	  	<td>
-  	      <div id="star-rate-<%= review.id %>"></div>
+  	      <div id="star-rate-<%= favorite.review.id %>"></div>
   	      <script>
-          $('#star-rate-<%= review.id %>').raty({
+          $('#star-rate-<%= favorite.review.id %>').raty({
             size     : 36,
             starOff:  '<%= asset_path('star-off.png') %>',
             starOn : '<%= asset_path('star-on.png') %>',
             readOnly: true,
-            score: <%= review.rating %>,
+            score: <%= favorite.review.rating %>,
           });
           </script>
         </td>
 
-        <td><%= link_to review.title, review_path(review) %></td>
+        <td><%= link_to favorite.review.title, review_path(favorite.review) %></td>
 
-        <td><%= review.genre.genre_name %></td>
+        <td><%= favorite.review.genre.genre_name %></td>
 
         <td>
-          <% review.tag_list.each do |tag| %>
+          <% favorite.review.tag_list.each do |tag| %>
   	        <span class="badge.badge-primary.mr-1.p-2"><%= tag %></span>
   	      <% end %>
   	    </td>

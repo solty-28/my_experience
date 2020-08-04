@@ -1,4 +1,5 @@
 class GenresController < ApplicationController
+  before_action :authenticate_user!
 
 ##ジャンル一覧
   def index

@@ -4,7 +4,7 @@
 <div class="">
   <%= form_for(@review, url: reviews_path, method: :post) do |f| %>
   <div class="">
-  	<%= f.label :picture, "レビュー写真" %>
+  	<%= f.label :picture, "レビュー写真（任意）" %>
   </div>
   <div class="">
   <%= f.attachment_field :picture, class:"" %>
@@ -34,7 +34,7 @@
   </div>
 
   <div class="form-group">
-  	<%= f.label :tag_list, "タグ付け" %>
+  	<%= f.label :tag_list, "タグ付け（複数タグ付けする場合は「 , 」で区切ってください）" %>
   	<%= f.text_field :tag_list, value: @review.tag_list.join(','), class: "form-control" %>
   </div>
 

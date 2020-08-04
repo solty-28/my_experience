@@ -9,4 +9,6 @@ class User < ApplicationRecord
   has_many :comments
   has_many :genres
   has_many :favorites, dependent: :destroy
+
+  validates :name, presence: true
 end

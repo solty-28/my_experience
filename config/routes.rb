@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   scope :user do
   	resources :genres, only: [:index, :create]
+    resources :favorites, only: [:index]
   end
 
   resources :user, only: [:index, :show]

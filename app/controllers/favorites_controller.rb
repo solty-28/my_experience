@@ -1,4 +1,10 @@
 class FavoritesController < ApplicationController
+  before_action :authenticate_user!
+
+  ##いいねレビュー一覧
+  def index
+    @favorites = Favorite.where(user_id: current_user.id)
+  end
 
   ##いいね作成
   def create

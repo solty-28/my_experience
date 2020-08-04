@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  before_action :authenticate_user!
 
   ##全体レビュー一覧
   def index
