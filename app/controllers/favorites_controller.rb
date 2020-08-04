@@ -1,5 +1,5 @@
 class FavoritesController < ApplicationController
-  
+  before_action :authenticate_user!
 
   ##いいねレビュー一覧
   def index
