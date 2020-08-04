@@ -14,7 +14,10 @@ class Review < ApplicationRecord
 
   validates :title, presence: true
   validates :review_body, presence: true
-  validates :rating, presence: true
+  validates :rating, numericality: {
+    less_than_or_equal_to: 5,
+    greater_than_or_equal_to: 1
+  }, presence: true
 
   ##いいね機能関連
   def favorited_by?(user)

@@ -29,11 +29,19 @@ class ReviewsController < ApplicationController
   def create
   	@review = Review.new(review_params)
   	@review.user_id = current_user.id
-  	if @review.save
-  	  redirect_to review_path(@review)
-  	else
-  	  render action: :new
-  	end
+    if params[:genre_choice] == '1'
+      @review.genre_id = (params[:exist_genre][:genre_id])
+      @review.save
+      redirect_to review_path(@review)
+    else
+      @genre = Genre.new
+      @genre.genre_name = params[:new_genre_name]
+      @genre.user_id = current_user.id
+      @genre.save
+      @review.genre_id = @genre.id
+      @review.save
+      redirect_to review_path(@review)
+    end
   end
 
   ##レビュー更新アクション

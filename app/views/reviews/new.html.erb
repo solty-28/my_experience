@@ -28,9 +28,22 @@
   	<%= f.text_area :review_body, class:"form-control" %>
   </div>
 
-  <div class="form-group">
-  	<%= f.label :genre, "ジャンル選択" %>
-  	<%= f.collection_select(:genre_id, @genres, :id, :genre_name, { include_blank: '分類なし'}, class:"form-control") %>
+  <div class="">
+    <label>ジャンル選択</label>
+    <div class="ml-5">
+      <%= radio_button_tag :genre_choice, 1 %> 登録しているジャンルから選択
+      <div class="form-group">
+    	  <%= collection_select(:exist_genre, :genre_id, current_user.genres, :id, :genre_name, { include_blank: '選択してください'}, class:"form-control") %>
+      </div>
+    </div>
+
+    <div class="ml-5">
+      <%= radio_button_tag :genre_choice, 2 %> 新規ジャンル登録
+      <div class="form-group">
+        <%= label :new_genre_name, "ジャンル名" %>
+        <%= text_field_tag :new_genre_name,'', class:"form-control" %>
+      </div>
+    </div>
   </div>
 
   <div class="form-group">
