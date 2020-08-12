@@ -3,6 +3,7 @@
 
 <div class="">
   <%= form_for(@review, url: reviews_path, method: :post) do |f| %>
+  <%= render 'layouts/error_messages', model: f.object %>
   <div class="">
   	<%= f.label :picture, "レビュー写真（任意）" %>
   </div>
