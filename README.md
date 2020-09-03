@@ -19,6 +19,24 @@
 例）旅行先の感想や、飲食店の感想なども可能。
 
 ## 設計書
+- OS
+Linux(Ubuntu)
+
+- 言語
+HTML,CSS,JavaScript,Ruby,SQL
+
+- フレームワーク
+Ruby on Rails
+
+- Railsライブラリ
+devise,refile,raty.js,acts-as-taggable-on
+
+- JSライブラリ
+jQuery
+
+- インフラ
+AWS(EC2,RDS,EIP)
+
 
 ### 機能一覧
 <https://docs.google.com/spreadsheets/d/1pNVM4ctCyOWc3LqYwezT9zL4Bwsy0kEND-ip2Lnmk8w/edit?usp=sharing>
